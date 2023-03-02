@@ -42,7 +42,7 @@ public class Butaca {
 
     @Override
     public int hashCode() {
-        return 1;
+        return persona.hashCode()+numDeFila+numDeButaca;
     }
 
     @Override

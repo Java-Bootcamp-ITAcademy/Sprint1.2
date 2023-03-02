@@ -19,7 +19,7 @@ public class Entrada {
             catch (NullPointerException e) {    //sc reference is null
                 System.out.println("Invalid Scanner object");
             } catch (InputMismatchException e) {    //Catching invalid input exception
-                System.out.println("Argument invàlid. Torna-ho a intentar");
+                System.out.println();
                 sc.next();
             }
         }
