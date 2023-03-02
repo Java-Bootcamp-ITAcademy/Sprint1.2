@@ -19,7 +19,7 @@ public class Entrada {
             catch (NullPointerException e) {    //sc reference is null
                 System.out.println("Invalid Scanner object");
             } catch (InputMismatchException e) {    //Catching invalid input exception
-                System.out.println();
+                System.out.println("Argument invàlid. Torna-ho a intentar");
                 sc.next();
             }
         }
@@ -100,7 +100,7 @@ public class Entrada {
                 }
 
             }
-            catch (Exception e) {
+            catch (Exception e) {  //Catching several exceptions
                 System.out.println("Argument invàlid");
             }
         }
@@ -116,7 +116,7 @@ public class Entrada {
                 s = sc.nextLine();
                 llegir=false;
             }
-            catch (Exception e) {    //Catching exception
+            catch (Exception e) {    //Catching several exceptions
                 System.out.println("Alguna cosa ha anat malament. Torna-ho a provar");
             }
         }
@@ -138,7 +138,7 @@ public class Entrada {
                     b = false;
                     llegir=false;
                 }
-            } catch (Exception e) {    //Catching exception
+            } catch (Exception e) {    //Catching several exceptions
                 System.out.println("Introdueix una opció correcta");
             }
         }
