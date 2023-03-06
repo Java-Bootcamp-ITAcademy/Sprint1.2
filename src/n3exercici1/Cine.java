@@ -3,6 +3,7 @@ package n3exercici1;
 
 import java.util.Iterator;
 import java.util.Scanner;
+import java.util.concurrent.ExecutionException;
 
 public class Cine {
     private static Scanner sc=new Scanner(System.in);
@@ -12,8 +13,7 @@ public class Cine {
 
     /* Constructor */
     public Cine() {
-        gestioDeButaques=new GestioDeButaques();
-        demanarDadesInicials();
+
     }
 
     /* Getters and setters */
@@ -38,11 +38,12 @@ public class Cine {
     }
 
     /* Instance methods declaration */
-    public void demanarDadesInicials() {
+    public void assignarDadesInicial() {
         System.out.println("Quantes files té el cinema?");
         setNombreDeFiles(Integer.parseInt(sc.nextLine()));
         System.out.println("Quantes butaques hi per fila?");
         setNombreDeButaquesFila(Integer.parseInt(sc.nextLine()));
+        this.gestioDeButaques=new GestioDeButaques();
     }
 
     public int menu() {
@@ -108,8 +109,13 @@ public class Cine {
         int fila=introduirFila();
         int seient=introduirSeient();
         String persona=introduirPersona();
-        Butaca butaca=new Butaca(fila,seient,persona);
-        gestioDeButaques.afegirButaca(butaca);
+        if(gestioDeButaques.cercarButaques(fila,seient)==-1 || gestioDeButaques.getButaques().isEmpty()) {
+            Butaca butaca=new Butaca(fila, seient, persona);
+            gestioDeButaques.afegirButaca(butaca);
+        }
+        else {
+            throw new ExcepcioButacaOcupada();
+        }
     }
 
     public void anularReserva() throws Exception {
@@ -120,10 +126,12 @@ public class Cine {
 
     public void anularReservaPersona() throws Exception {
         String persona=introduirPersona();
+        boolean trobat=false;
         Iterator<Butaca> it=gestioDeButaques.getButaques().iterator();
-        while(it.hasNext()) {
+        while(it.hasNext()||!trobat) {
             if(it.next().getPersona().equals(persona)) {
                 it.remove();
+                trobat=true;
             }
         }
     }

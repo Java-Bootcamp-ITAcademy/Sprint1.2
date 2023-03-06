@@ -8,7 +8,7 @@ public class GestioDeButaques {
 
     /* Constructor */
     public GestioDeButaques() {
-        butaques=new ArrayList<>();
+        this.butaques=new ArrayList<>();
     }
 
     /* Getter */
@@ -38,16 +38,11 @@ public class GestioDeButaques {
 
     public int cercarButaques(int fila, int seient) {
         Butaca butaca=new Butaca(fila, seient,null);
-        if(butaques.isEmpty()) {
+        if(butaques.isEmpty() || !butaques.contains(butaca)) {
             return -1;
         }
         else {
-            for(int i=0;i<butaques.size();i++) {
-                if(butaques.get(i).equals(butaca)) {
-                    return i;
-                }
-            }
-            return -1;
+            return butaques.indexOf(butaca);
         }
     }
 }

@@ -20,6 +20,8 @@ public class Entrada {
                 System.out.println("Invalid Scanner object");
             } catch (InputMismatchException e) {    //Catching invalid input exception
                 System.out.println("Argument invàlid. Torna-ho a intentar");
+            }
+            finally {
                 sc.next();
             }
         }
@@ -40,6 +42,8 @@ public class Entrada {
                 System.out.println("Invalid Scanner object");
             } catch (InputMismatchException e) {     //Catching invalid input exception
                 System.out.println("Argument invàlid. Torna-ho a intentar");
+            }
+            finally {
                 sc.next();
             }
         }
@@ -59,6 +63,8 @@ public class Entrada {
                 System.out.println("Invalid Scanner object");
             } catch (InputMismatchException e) {    //Catching invalid input exception
                 System.out.println("Argument invàlid. Torna-ho a intentar");
+            }
+            finally {
                 sc.next();
             }
         }
@@ -78,6 +84,8 @@ public class Entrada {
                 System.out.println("Invalid Scanner object");
             } catch (InputMismatchException e) {    //Catching invalid input exception
                 System.out.println("Argument invàlid. Torna-ho a intentar");
+            }
+            finally {
                 sc.next();
             }
         }

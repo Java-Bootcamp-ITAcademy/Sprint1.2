@@ -9,9 +9,9 @@ public class Butaca {
     /* Constructor */
 
     public Butaca(int numDeFila, int numDeButaca, String persona) {
-        setNumDeFila(numDeFila);
-        setNumDeButaca(numDeButaca);
-        setPersona(persona);
+        this.numDeFila=numDeFila;
+        this.numDeButaca=numDeButaca;
+        this.persona=persona;
     }
 
     /* Getters and setters */

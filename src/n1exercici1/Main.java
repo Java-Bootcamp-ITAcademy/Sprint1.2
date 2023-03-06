@@ -6,8 +6,8 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
 
-        List<Producte> productes=new ArrayList<>();
-        new Venda(productes).generarVenda();
+
+        new Venda().generarVenda();
 
 
 

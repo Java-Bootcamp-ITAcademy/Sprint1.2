@@ -5,12 +5,12 @@ import java.util.*;
 
 
 public class Venda {
-    private List<Producte> llista=new ArrayList<>();    //Defining attributes
+    private List<Producte> llista;    //Defining attributes
     private Double preu=null;
 
     /* Constructor */
-    public Venda(List llista) {    //Constructor takes a list as a parameter
-        this.setLlista(llista);
+    public Venda() {
+        this.llista=new ArrayList<>();//Constructor takes a list as a parameter;
     }
 
     /* Getters and setters */
@@ -34,7 +34,6 @@ public class Venda {
     /* Instance methods */
     public void generarVenda() {
         boolean seguir=true;
-        List<Producte> llista=new ArrayList<>();    //Creating a list of products
         Scanner sc=new Scanner(System.in);
         while(seguir) {    //Adding products into the list
             System.out.println("Vol introduir algun producte? S/N");
@@ -45,7 +44,7 @@ public class Venda {
                 System.out.println("Introdueixi preu del producte");
                 Double preu=Double.parseDouble(sc.nextLine());
                 Producte producte=new Producte(nom,preu);
-                llista.add(producte);
+                this.llista.add(producte);
             }
             else if(resposta.equals("N")) {
                 seguir=false;
@@ -53,8 +52,8 @@ public class Venda {
             }
         }
         try {    //Try block
-            Venda venda=new Venda(llista);    //A new Venda is instantiated
-            double total=venda.calcularTotal();    //Calculating total amount calling method
+                //A new Venda is instantiated
+            double total=this.calcularTotal();    //Calculating total amount calling method
             System.out.printf("El total de la venda és de %.2f€\n",total);
         }
         catch(VendaBuidaException e) {    //Catch block
@@ -75,5 +74,6 @@ public class Venda {
        }
        return total;
     }
+
 
 }

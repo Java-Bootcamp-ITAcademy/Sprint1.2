@@ -6,8 +6,8 @@ public class Producte {
     private Double preu;
 
     public Producte(String nom, Double preu) {    //Declaring constructor
-        this.setNom(nom);
-        this.setPreu(preu);
+        this.nom=nom;
+        this.preu=preu;
     }
 
     public String getNom() {    //Setters and getters
